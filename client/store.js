@@ -1,37 +1,10 @@
-if (Meteor.isClient) {
-  Articles = new Mongo.Collection("articles");
-  Articles.insert({name: "test article"});
-  var allArticles = Articles.find({}).fetch();
-  Articles.insert({text: "boop be doop"});
-  // Meteor.publish("articles", function(){
-  //   return Articles.find();
-  // })
+Articles = new Mongo.Collection("articles");
 
-  // counter starts at 0
-  Session.setDefault("counter", 0);
+Meteor.subscribe("articles");
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get("counter");
-    }
-  });
+Articles.insert({name: "Random Test Article"});
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set("counter", Session.get("counter") + 1);
-    }
-  });
-}
+var article_list = Articles.find().fetch();
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
-
-
-// user
-// customer
-// article 
-
+console.log( Meteor.userId() );
+console.log(article_list);
