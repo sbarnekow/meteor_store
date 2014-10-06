@@ -1,4 +1,12 @@
 if (Meteor.isClient) {
+  Articles = new Mongo.Collection("articles");
+  Articles.insert({name: "test article"});
+  var allArticles = Articles.find({}).fetch();
+  Articles.insert({text: "boop be doop"});
+  // Meteor.publish("articles", function(){
+  //   return Articles.find();
+  // })
+
   // counter starts at 0
   Session.setDefault("counter", 0);
 
