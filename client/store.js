@@ -14,8 +14,8 @@ ArticleSchema = new SimpleSchema({
 		label: "Price",
 		min: 0
 	},
-	picture: {
-		type: [String],
+	fileId: {
+		type: String,
 		label: "Picture"
 	}
 });
