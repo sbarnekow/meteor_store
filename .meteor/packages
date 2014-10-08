@@ -15,4 +15,5 @@ aldeed:simple-schema@1.0.3
 mizzao:bootstrap-3
 cfs:standard-packages
 cfs:autoform
+cfs:gridfs
 
