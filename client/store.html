@@ -8,7 +8,13 @@
 </body>
 
 <template name="insertArticleForm">
-  {{> quickForm collection="Articles" id="insertArticleForm" type="insert"}}
+  {{#autoForm id="insertArticleForm" type="insert" collection="Articles"}}
+  {{> afQuickField name="title"}}
+  {{> afQuickField name="description" rows=6}}
+  {{> afQuickField name="price"}}
+  {{> cfsFileField name="fileId" collection="files"}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {{/autoForm}}
 </template>
 
 <template name="updateArticleForm">
