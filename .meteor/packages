@@ -9,3 +9,7 @@ accounts-ui
 accounts-password
 accounts-facebook
 accounts-twitter
+aldeed:collection2
+aldeed:autoform
+aldeed:simple-schema@1.0.3
+
