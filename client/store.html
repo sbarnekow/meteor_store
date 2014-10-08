@@ -2,9 +2,14 @@
   Random Acts Of...
 </head>
 <body>
-  {{> insertArticleForm}}
+  <div>
+    {{> insertArticleForm}}
+  </div>
 </body>
 
 <template name="insertArticleForm">
   {{> quickForm collection="Articles" id="insertArticleForm" type="insert"}}
+</template>
+
+<template name="updateArticleForm">
 </template>

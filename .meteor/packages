@@ -12,4 +12,7 @@ accounts-twitter
 aldeed:collection2
 aldeed:autoform
 aldeed:simple-schema@1.0.3
+mizzao:bootstrap-3
+cfs:standard-packages
+cfs:autoform
 
