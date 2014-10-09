@@ -1,18 +1,28 @@
 <head>
-  Random Acts Of...
 </head>
 <body>
+  <div>
+    {{> articles }}
+  </div>
   <div>
     {{> insertArticleForm}}
   </div>
 </body>
+
+<template name="articles">
+  {{#each Articles}}
+    <div>{{title}}</div>
+    <div>{{description}}</div>
+    <div>{{price}}</div>
+  {{/each}}
+</template>
 
 <template name="insertArticleForm">
   {{#autoForm id="insertArticleForm" type="insert" collection="Articles"}}
   {{> afQuickField name="title"}}
   {{> afQuickField name="description" rows=6}}
   {{> afQuickField name="price"}}
-  {{> cfsFileField name="fileId" collection="files"}}
+  <!-- {{> cfsFileField name="fileId" collection="files"}} -->
   <button type="submit" class="btn btn-primary">Submit</button>
   {{/autoForm}}
 </template>

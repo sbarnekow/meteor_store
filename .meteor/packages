@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 accounts-ui
 accounts-password
 accounts-facebook
@@ -16,4 +15,6 @@ mizzao:bootstrap-3
 cfs:standard-packages
 cfs:autoform
 cfs:gridfs
+insecure
+autopublish
 
