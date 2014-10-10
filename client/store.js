@@ -1,4 +1,3 @@
-SimpleSchema.debug = true;
 ArticleSchema = new SimpleSchema({
 	title: {
 		type: String,
@@ -15,21 +14,13 @@ ArticleSchema = new SimpleSchema({
 		label: "Price",
 		min: 0
 	}
-	// fileId: {
-	// 	type: String,
-	// 	label: "fileId",
-	// 	optional: true
-	// }
 });
 Articles = new Mongo.Collection("articles");
 Articles.attachSchema(ArticleSchema);
 
-Files = new FS.Collection("files", {
-	stores: [new FS.Store.GridFS("filesStore")]
-});
-
 Template.articles.Articles = function(){
-	// Articles.insert({title: "hello", description: "this is a description", price: 10});
-	console.log('im getting read');
 	return Articles.find({});
+};
+
+Template.updateOrDeleteArticle.Articles = function(){
 };
