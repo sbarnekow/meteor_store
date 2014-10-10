@@ -2,3 +2,40 @@ form#insertArticleForm{
 	width: 50%;
 	margin: 10% auto;
 }
+
+.login {
+	margin-top: 20px;
+}
+
+.all-articles {
+	margin-top: 5%;
+	position: relative;
+}
+
+.new-article { 
+	position: relative;
+}
+
+.edit-article {
+	margin-top: 5%;
+}
+
+/*creating a block grid for items*/
+[class*='block-grid-')]{
+	display:block;
+	padding: 0;
+	margin: 0;
+}
+
+[class*='block-grid-'] > li {
+	display: block;
+	height: auto;
+	float: left;
+}
+
+.small-block-grid-3 > li {
+	width: 33.33%;
+	list-style: none;
+	padding: 10px;
+}
+
