@@ -1,3 +1,5 @@
+Meteor.subscribe("articles");
+
 ArticleSchema = new SimpleSchema({
 	title: {
 		type: String,
@@ -23,19 +25,14 @@ Template.articles.Articles = function(){
 };
 
 Template.updateArticle.Articles = function(){
-	return Articles.updateArticleInfo();
+	return Articles.findOne(Session.get("selectedArticle"));
+	console.log("this article is being updated" + "selectedArticle");
 };
 
-// Template.updateArticle.helpers({
-// 	editArticle: function updateArticleHelper(){
-// 		return Articles.findOne({_id: selectedPost});
-// 	}
-// });
-
-$(document).ready(function(){
-	$('.crud-buttons').on('click', '#edit-article', function (){
-		alert('hey!');
-		console.log( this.parentNode.id );
-		// console.log(selectedPost);
-	});
+Template.articles.events({
+	'click #edit-article': function(e, t){
+		e.preventDefault();
+		Session.set("selectedArticle", this._id);
+		console.log(Session.get("selectedArticle"));
+	}
 });
