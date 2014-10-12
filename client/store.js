@@ -22,5 +22,20 @@ Template.articles.Articles = function(){
 	return Articles.find({});
 };
 
-Template.updateOrDeleteArticle.Articles = function(){
+Template.updateArticle.Articles = function(){
+	return Articles.updateArticleInfo();
 };
+
+// Template.updateArticle.helpers({
+// 	editArticle: function updateArticleHelper(){
+// 		return Articles.findOne({_id: selectedPost});
+// 	}
+// });
+
+$(document).ready(function(){
+	$('.crud-buttons').on('click', '#edit-article', function (){
+		alert('hey!');
+		console.log( this.parentNode.id );
+		// console.log(selectedPost);
+	});
+});
