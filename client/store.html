@@ -1,15 +1,18 @@
 <head>
 </head>
 <body>
+  <header>
+    Random Acts Of . . .
+  </header>
   <div class="login">
     {{> loginButtons}}
+  </div>
+  <div class="all-articles">
+    {{> articles }}
   </div>
   <div class="new-article">
     {{> insertArticleForm }}
   </div> 
-  <div class="all-articles">
-    {{> articles }}
-  </div>
   <div class="edit-article">
     {{> updateArticle }}
   </div>
@@ -22,7 +25,7 @@
       <div>
         {{title}}
       </div>
-      <div>
+      <div id="description">
         {{description}}
       </div>
       <div>
@@ -38,14 +41,9 @@
 </template>
 
 <template name="insertArticleForm">
-    {{#autoForm id="insertArticleForm" type="insert" collection="Articles"}}
-    {{> afQuickField name="title"}}
-    {{> afQuickField name="description" rows=6}}
-    {{> afQuickField name="price"}}
-    <button type="submit" class="btn btn-primary">Submit</button>
-    {{/autoForm}}
+    {{>quickForm id="insertArticleForm" type="insert" collection="Articles"}}
 </template>
 
 <template name="updateArticle">
-  {{> quickForm collection="Articles" doc=editArticle id="updateArticle" type="update"}}
+  {{>quickForm collection="Articles" doc=selectedArticle id="updateArticle" type="update" button_content="Update" }}
 </template>
