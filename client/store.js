@@ -33,7 +33,5 @@ Template.articles.events({
 	'click #edit-article': function(e, t){
 		e.preventDefault();
 		Session.set("selectedArticle", this._id);
-		console.log(Session.get("selectedArticle"));
-		console.log(Template.articles.currentData());
 	}
 });

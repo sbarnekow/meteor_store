@@ -1,17 +1,11 @@
-form{
-	width: 50%;
-	margin: 10% auto;
-}
-
-header {
+.navigation {
 	text-align: center;
 }
 
-header span.title {
+.navigation span.title {
 	font-size: 36px;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 300;
-	float: left;
 	margin: 15px 0 0 30px;
 }
 
@@ -20,33 +14,6 @@ header span.title {
 	margin: 20px 30px;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 300;
-	float: right;
-}
-
-.column {
-	text-align: center;
-	overflow: auto;
-	position: relative;
-}
-
-.subheading {
-	text-align: center;
-}
-
-.column {
-
-}
-
-.new-article { 
-	margin-top: 5%;
-	border: 1px solid red;
-	clear: both;
-}
-
-.edit-article {
-	border: 1px solid yellow;
-	margin-top: 5%;
-	clear: both;
 }
 
 /*creating a block grid for items*/
