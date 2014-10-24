@@ -8,44 +8,35 @@
       {{> loginButtons}}
     </span>
   </div>
-  <div>
+  <div class="all-articles">
     {{> articles }}
   </div>
   <div class="new-article">
     {{> insertArticleForm }}
   </div> 
-  <div class="edit-article">
-    {{> updateArticle }}
-  </div>
 </body>
 
 <template name="articles">
-  <div>
-    <ul class="small-block-grid-3 clearfix">
-    {{#each Articles}}
-      <li class="column">
-        <div>
-          {{title}}
+  <ul class="small-block-grid-3 clearfix">
+  {{#each Articles}}
+    <li class="column">
+      <div class="article-title">
+        {{title}}
+      </div>
+      <div class="article-price">
+        {{price}}
+      </div>
+      {{#if currentUser}}
+        <div class="crud-buttons" id={{_id}}>
+          <button name="edit" class="btn btn-primary" id="edit-article"> Edit </button>
+          <button name="delete" class="btn btn-primary" id="delete-article"> Delete </button>
         </div>
-        <div>
-          {{price}}
-        </div>
-        {{#if currentUser}}
-          <div class="crud-buttons" id={{_id}}>
-            <button name="edit" class="btn btn-primary" id="edit-article"> Edit </button>
-            <button name="delete" class="btn btn-primary" id="delete-article"> Delete </button>
-          </div>
-        {{/if}}
-      </li>
-    {{/each}}
-    </ul>
-  </div>
+      {{/if}}
+    </li>
+  {{/each}}
+  </ul>
 </template>
 
 <template name="insertArticleForm">
     {{>quickForm id="insertArticleForm" type="insert" collection="Articles"}}
-</template>
-
-<template name="updateArticle">
-  {{>quickForm collection="Articles" doc=selectedArticle id="updateArticle" type="update" button_content="Update" }}
 </template>
