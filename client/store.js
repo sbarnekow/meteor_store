@@ -24,14 +24,9 @@ Template.articles.Articles = function(){
 	return Articles.find({});
 };
 
-Template.updateArticle.Articles = function(){
-	return Articles.findOne(Session.get("selectedArticle"));
-	console.log("this article is being updated" + "selectedArticle");
-};
-
-Template.articles.events({
-	'click #edit-article': function(e, t){
-		e.preventDefault();
-		Session.set("selectedArticle", this._id);
-	}
-});
+Template.articles.events = function(){
+	editing: '.article-title'.click(function(event){		
+		event.preventDefault();
+		alert('hay');
+	});
+}
