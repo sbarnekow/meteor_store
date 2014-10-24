@@ -22,11 +22,22 @@ Articles.attachSchema(ArticleSchema);
 
 Template.articles.Articles = function(){
 	return Articles.find({});
+	$('#edit-article').click(function(){
+		alert(this._id);
+	});
 };
 
-Template.articles.events = function(){
-	editing: '.article-title'.click(function(event){		
-		event.preventDefault();
-		alert('hay');
+Template.editArticle.Articles = function(){
+};
+
+Template.editArticle.helpers = function(){
+	editing: function editArticleHelper(){
+		return Articles.findOne({_id: Session.get('this._id')});
+	}
+};
+
+$(document).ready(function(){
+	$('#edit-article').click(function(){
+		$('#edit-modal').modal({show: true})
 	});
-}
+});

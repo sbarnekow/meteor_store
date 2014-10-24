@@ -10,6 +10,7 @@
   </div>
   <div class="all-articles">
     {{> articles }}
+    {{> editArticle }}
   </div>
   <div class="new-article">
     {{> insertArticleForm }}
@@ -39,4 +40,16 @@
 
 <template name="insertArticleForm">
     {{>quickForm id="insertArticleForm" type="insert" collection="Articles"}}
+</template>
+
+<template name="editArticle">
+  <div class="modal" id="edit-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            {{>quickForm collection="Articles" doc=editArticle id="updateArticleForm" type="update"}}
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
