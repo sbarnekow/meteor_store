@@ -22,22 +22,27 @@ Articles.attachSchema(ArticleSchema);
 
 Template.articles.Articles = function(){
 	return Articles.find({});
-	$('#edit-article').click(function(){
-		alert(this._id);
-	});
+
+	// $('p#title.editable').editable({
+	// 	defaultValue: "Please edit me",
+	// 	success: function(response, newValue){
+	// 		return Articles.update({_id: this._id}, {$set: {title: newValue}});
+	// 	}
+	// });
 };
 
-Template.editArticle.Articles = function(){
-};
-
-Template.editArticle.helpers = function(){
-	editing: function editArticleHelper(){
-		return Articles.findOne({_id: Session.get('this._id')});
+Template.articles.events = {
+	'click #delete-article': function(){
+		return Articles.remove(this._id);
+		console.log("success deleting" + this.title);
+	},
+	'window onLoad': function(){
+		$('p#title.editable').editable({ success: alert("hi") });
 	}
 };
 
-$(document).ready(function(){
-	$('#edit-article').click(function(){
-		$('#edit-modal').modal({show: true})
-	});
-});
+Template.editArticle.helpers({
+	article: function(){
+		return Articles.findOne(Session.get('selectedArticleId'));
+	},
+})
