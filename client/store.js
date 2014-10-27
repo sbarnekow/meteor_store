@@ -41,8 +41,13 @@ Template.articles.events = {
 		$('p#title.editable').editable({ 
 			success: function(response, newValue){
 				Articles.update(articleId, { $set: { title: newValue } } );
-				console.log(newValue);
-				console.log("Success!");
+			},
+			error: function(response, newValue){
+				if (response.status === 500){
+					return "Can't access the server right now! Please try again in a bit."
+				} else {
+					return response.responseText;
+				}
 			}
 		});
 	}
