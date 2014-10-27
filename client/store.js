@@ -36,8 +36,15 @@ Template.articles.events = {
 		return Articles.remove(this._id);
 		console.log("success deleting" + this.title);
 	},
-	'window onLoad': function(){
-		$('p#title.editable').editable({ success: alert("hi") });
+	'click .editable': function(){
+		var articleId = this._id;
+		$('p#title.editable').editable({ 
+			success: function(response, newValue){
+				Articles.update(articleId, { $set: { title: newValue } } );
+				console.log(newValue);
+				console.log("Success!");
+			}
+		});
 	}
 };
 

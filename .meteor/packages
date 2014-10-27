@@ -17,4 +17,5 @@ cfs:autoform
 cfs:gridfs
 insecure
 autopublish
+natestrauser:x-editable-bootstrap
 
