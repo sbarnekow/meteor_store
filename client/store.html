@@ -22,17 +22,11 @@
   {{#each Articles}}
     <li class="column">
       <div class="article-title">
-        <p id="title" class="editable" data-type="textarea" data-placeholder="Enter text" data-emptytext="Click to enter text">{{title}}</p>
+        <p class="editable title" id={{_id}} data-name="title" data-type="textarea" data-placeholder="Enter text" data-emptytext="Hey, I need a title!">{{title}}</p>
       </div>
       <div class="article-price">
         {{price}}
       </div>
-      {{#if currentUser}}
-        <div class="crud-buttons" id={{_id}}>
-          <button name="edit" class="btn btn-primary" id="edit-article"> Edit </button>
-          <button name="delete" class="btn btn-primary" id="delete-article"> Delete </button>
-        </div>
-      {{/if}}
     </li>
   {{/each}}
   </ul>
