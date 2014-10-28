@@ -22,14 +22,19 @@ Articles.attachSchema(ArticleSchema);
 
 Template.articles.Articles = function(){
 	return Articles.find({});
+}
 
-	// $('p#title.editable').editable({
-	// 	defaultValue: "Please edit me",
-	// 	success: function(response, newValue){
-	// 		return Articles.update({_id: this._id}, {$set: {title: newValue}});
-	// 	}
-	// });
+var editableDefaults = {
+	mode: 'inline',
+	toggle: 'click',
+	onblur: 'submit',
+	inputclass: 'input-small',
+	savenochange: true,
+	showbuttons: 'bottom'
 };
+
+$.extend($.fn.editable.defaults, editableDefaults);
+
 
 Template.articles.events = {
 	'click #delete-article': function(){
@@ -37,17 +42,10 @@ Template.articles.events = {
 		console.log("success deleting" + this.title);
 	},
 	'click .editable': function(){
-		var articleId = this._id;
-		$('p#title.editable').editable({ 
-			success: function(response, newValue){
-				Articles.update(articleId, { $set: { title: newValue } } );
-			},
-			error: function(response, newValue){
-				if (response.status === 500){
-					return "Can't access the server right now! Please try again in a bit."
-				} else {
-					return response.responseText;
-				}
+		$('.article-title p[data-name="title"]').editable({ 
+			success: function(_this){
+					console.log("articleid  " + this._id);
+					// Articles.update(_this.data._id, { $set: { title: newValue } } );
 			}
 		});
 	}
