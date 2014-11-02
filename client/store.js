@@ -20,9 +20,12 @@ ArticleSchema = new SimpleSchema({
 Articles = new Mongo.Collection("articles");
 Articles.attachSchema(ArticleSchema);
 
-Template.articles.Articles = function(){
-	return Articles.find({});
-}
+Template.articles.helpers({ 
+	allArticles: function(){
+		return Articles.find({});
+	}
+});
+
 
 var editableDefaults = {
 	mode: 'inline',
@@ -43,7 +46,8 @@ Template.articles.events = {
 	},
 	'click .editable': function(){
 		$('.article-title p[data-name="title"]').editable({ 
-			success: function(_this){
+			// var _this = this._id;
+			success: function(){
 					console.log("articleid  " + this._id);
 					// Articles.update(_this.data._id, { $set: { title: newValue } } );
 			}

@@ -19,7 +19,7 @@
 
 <template name="articles">
   <ul class="small-block-grid-3 clearfix">
-  {{#each Articles}}
+  {{#each allArticles}}
     <li class="column">
       <div class="article-title">
         <p class="editable title" id={{_id}} data-name="title" data-type="textarea" data-placeholder="Enter text" data-emptytext="Hey, I need a title!">{{title}}</p>
