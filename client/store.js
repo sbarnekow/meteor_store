@@ -59,4 +59,4 @@ Template.editArticle.helpers({
 	article: function(){
 		return Articles.findOne(Session.get('selectedArticleId'));
 	},
-})
+});

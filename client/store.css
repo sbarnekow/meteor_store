@@ -27,6 +27,7 @@ form#insertArticleForm {
 }
 
 .small-block-grid-3 {
+	width: 90%;
 	margin: auto;
 }
 
