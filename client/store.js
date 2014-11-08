@@ -46,10 +46,8 @@ Template.articles.events = {
 	},
 	'click .editable': function(){
 		$('.article-title p[data-name="title"]').editable({ 
-			// var _this = this._id;
 			success: function(){
-					console.log("articleid  " + this._id);
-					// Articles.update(_this.data._id, { $set: { title: newValue } } );
+				Articles.update(this._id, { $set: { title: newValue } } );
 			}
 		});
 	}
