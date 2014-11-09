@@ -1,3 +1,9 @@
+body { 
+	background-image: url('sativa.png');
+	background-repeat: repeat;
+	height: 100%;
+}
+
 .navigation {
 	text-align: center;
 	margin-bottom: 10%;
@@ -51,6 +57,7 @@ form#insertArticleForm {
 	border: 1px solid gray;
 	list-style: none;
 	padding: 15px;
+	background-color: white;
 }
 
 .clearfix:before, .clearfix:after {
