@@ -2,11 +2,22 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="navigation">
-    <span class="title"> Random Acts Of . . . </span>
-    <span class="login">
-      {{> loginButtons}}
-    </span>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Random Acts Of...</a>
+      </div>
+      <div class="navbar-right">
+        <button type="button" class="btn btn-default navbar-btn">
+         {{> loginButtons}}
+       </button>
+     </div>
+    </div>
+  </nav>
+  <div class="jumbotron">
+   <h1>
+      Random Acts Of . . . 
+    </h1>
   </div>
   <div class="all-articles">
     {{> articles }}
