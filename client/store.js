@@ -45,9 +45,12 @@ Template.articles.events = {
 		console.log("success deleting" + this.title);
 	},
 	'click .editable': function(){
-		$('.article-title p[data-name="title"]').editable({ 
-			success: function(){
-				Articles.update(this._id, { $set: { title: newValue } } );
+		var id = this._id;
+		$('p[data-name="title"]').editable({ 
+			success: function(newValue){
+				Articles.update(id, {
+					$set: {title: newValue} 
+				});
 			}
 		});
 	}
