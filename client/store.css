@@ -20,6 +20,12 @@ form#insertArticleForm {
 	margin: auto;
 }
 
+.article-description {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
 .new-article {
 	margin-top: 10%;
 }
