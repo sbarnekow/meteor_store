@@ -32,7 +32,7 @@
   {{#each allArticles}}
     <li class="column">
       <div class="article-title">
-        <p class="editable title" id={{_id}} data-name="title" data-type="textarea" data-placeholder="Enter text" data-emptytext="Hey, I need a title!">{{title}}</p>
+        <p class="editable title" data-name="title" data-pk={{_id}}  data-type="textarea" data-placeholder="Enter text" data-emptytext="Hey, I need a title!">{{title}}</p>
       </div>
       <div class="article-description">
          <p class="editable description" id={{_id}} data-name="description" data-type="textarea" data-placeholder="Enter text">{{description}}</p>

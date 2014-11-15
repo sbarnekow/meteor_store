@@ -45,28 +45,46 @@ Template.articles.events = {
 		console.log("success deleting" + this.title);
 	},
 	'click .editable': function(){
-		var id = this._id;
-		$('p[data-name="title"]').editable({ 
+		$('p[data-name="title"]').editable({
+			error: function(response, newValue){
+				if(response.status === 500){
+					return 'Service Unavailable, please try again later.'
+				} else {
+					console.log(response.responseText);
+				}
+			}, 
 			success: function(newValue){
-				Articles.update(id, {
-					$set: {title: newValue} 
+				var articleId = $(this).data("pk");
+				var articleProperties = {title: newValue};
+				console.log(articleId, articleProperties);
+				Articles.update(articleId, {$set: articleProperties}, function(error){
+					if error {
+						Errors.throw(error.message)
+					}
 				});
 			}
 		});
-		$('p[data-name="description"]').editable({ 
-			success: function(newValue){
-				Articles.update(id, {
-					$set: {description: newValue} 
-				});
-			}
-		});
-		$('p[data-name="price"]').editable({ 
-			success: function(newValue){
-				Articles.update(id, {
-					$set: {price: newValue} 
-				});
-			}
-		});
-
+		// $('p[data-name="description"]').editable({ 
+		// 	error: function(response, newValue){
+		// 		if(response.status === 500){
+		// 			return 'Service Unavailable, please try again later.'
+		// 		} else {
+		// 			console.log(response.responseText);
+		// 		}
+		// 	},
+		// 	success: function(newValue){
+		// 		console.log(id);
+		// 		Articles.update(id, {
+		// 			$set: {description: newValue} 
+		// 		});
+		// 	}
+		// });
+		// $('p[data-name="price"]').editable({ 
+		// 	success: function(newValue){
+		// 		Articles.update(id, {
+		// 			$set: {price: newValue} 
+		// 		});
+		// 	}
+		// });
 	}
 };
