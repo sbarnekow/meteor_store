@@ -53,5 +53,20 @@ Template.articles.events = {
 				});
 			}
 		});
+		$('p[data-name="description"]').editable({ 
+			success: function(newValue){
+				Articles.update(id, {
+					$set: {description: newValue} 
+				});
+			}
+		});
+		$('p[data-name="price"]').editable({ 
+			success: function(newValue){
+				Articles.update(id, {
+					$set: {price: newValue} 
+				});
+			}
+		});
+
 	}
 };
