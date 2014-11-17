@@ -8,6 +8,9 @@
         <a class="navbar-brand" href="#">Random Acts Of...</a>
       </div>
       <div class="navbar-right">
+        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#new-article">
+          Add New Piece
+        </button>
         <button type="button" class="btn btn-default navbar-btn">
          {{> loginButtons}}
        </button>
@@ -22,8 +25,14 @@
   <div class="all-articles">
     {{> articles }}
   </div>
-  <div class="new-article">
-    {{> insertArticleForm }}
+  <div class=" modal fade new-article" id="new-article" tab-index="-1" role="dialog" aria-labelledby="new-article-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          {{> insertArticleForm }}
+        </div>
+      </div>
+    </div>
   </div> 
 </body>
 
