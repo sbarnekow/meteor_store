@@ -55,13 +55,12 @@ Template.articles.events = {
 			}, 
 			success: function(newValue){
 				var articleId = $(this).data("pk");
-				var articleProperties = {title: newValue};
+
+				var articleProperties = {title: newValue}
+
 				console.log(articleId, articleProperties);
-				Articles.update(articleId, {$set: articleProperties}, function(error){
-					if error {
-						Errors.throw(error.message)
-					}
-				});
+
+				Articles.update(articleId, {$set: articleProperties});
 			}
 		});
 		// $('p[data-name="description"]').editable({ 
